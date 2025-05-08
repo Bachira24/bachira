@@ -280,15 +280,21 @@
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
         }
+        
+        .contact-btn.clicked {
+            transform: scale(0.95);
+            box-shadow: 0 2px 10px rgba(255, 140, 0, 0.3);
+            transition: all 0.2s ease;
+        }
 
         .social-popup {
             position: absolute;
-            top: -150px;
+            top: -180px;
             left: 50%;
             transform: translateX(-50%) scale(0);
             display: flex;
             gap: 15px;
-            padding: 15px;
+            padding: 20px;
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -296,6 +302,9 @@
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
             z-index: 100;
             pointer-events: none; /* Désactive les interactions par défaut */
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 280px;
         }
 
         .social-popup.active {
@@ -318,17 +327,19 @@
         }
 
         .social-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #f8f8f8;
-            border-radius: 50%;
+            border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            margin: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .social-icon::before {
@@ -460,7 +471,7 @@
                 <div class="logo">
                     <img src="./bachira_logoaecc_00000.png" alt="Logo Bachira">
                 </div>
-                <h1 class="brand-name">Bachiraa</h1>
+                <h1 class="brand-name">Bachira</h1>
             </div>
         </header>
 
@@ -535,14 +546,20 @@
                     socialIcons.forEach((icon, index) => {
                         setTimeout(() => {
                             if (socialPopup.classList.contains('active')) {
-                                icon.style.transform = 'translateY(0) scale(1)';
+                                icon.style.transform = 'translateY(0) scale(1) rotate(0deg)';
                                 icon.style.opacity = '1';
                             } else {
-                                icon.style.transform = 'translateY(20px) scale(0.5)';
+                                icon.style.transform = 'translateY(20px) scale(0.5) rotate(-10deg)';
                                 icon.style.opacity = '0';
                             }
-                        }, index * 100);
+                        }, index * 120);
                     });
+                    
+                    // Animation du bouton quand on clique
+                    contactBtn.classList.add('clicked');
+                    setTimeout(() => {
+                        contactBtn.classList.remove('clicked');
+                    }, 300);
                     
                     // Afficher un message de débogage
                     console.log('Bouton de contact cliqué, popup social est maintenant:', 
@@ -556,7 +573,7 @@
             const socialIcons = document.querySelectorAll('.social-icon');
             socialIcons.forEach(icon => {
                 icon.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
-                icon.style.transform = 'translateY(20px) scale(0.5)';
+                icon.style.transform = 'translateY(20px) scale(0.5) rotate(-10deg)';
                 icon.style.opacity = '0';
             });
             
