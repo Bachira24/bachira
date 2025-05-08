@@ -249,7 +249,7 @@
             font-weight: 800;
             margin-bottom: 20px;
             line-height: 1.2;
-            animation: fadeInUp 1s ease-out 0.9s both;
+            animation: fadeInLeft 1.2s ease-out 0.9s both;
         }
 
         .subheadline {
@@ -466,7 +466,7 @@
 
         <div class="main-content">
             <div class="left-section">
-                <h2 class="headline">I edit videos that make views</h2>
+                <h2 class="headline">I edit videos that get views</h2>
                 <p class="subheadline">More views, more growth, lets go viral.</p>
                 <button class="contact-btn" id="contactBtn">Contact me</button>
                 <div class="social-popup" id="socialPopup">
@@ -588,23 +588,18 @@
                 }
             });
             
-            // Animation d'entrée typée pour le texte du titre
+            // Animation d'entrée avec zoom pour le texte du titre
             setTimeout(function() {
                 const headline = document.querySelector('.headline');
                 if (headline) {
-                    const text = headline.textContent;
-                    headline.textContent = '';
-                    headline.style.opacity = '1';
+                    headline.style.opacity = '0';
+                    headline.style.transform = 'scale(0.5)';
+                    headline.style.transition = 'opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
                     
-                    let i = 0;
-                    const typeEffect = setInterval(function() {
-                        if (i < text.length) {
-                            headline.textContent += text.charAt(i);
-                            i++;
-                        } else {
-                            clearInterval(typeEffect);
-                        }
-                    }, 50);
+                    setTimeout(() => {
+                        headline.style.opacity = '1';
+                        headline.style.transform = 'scale(1)';
+                    }, 100);
                 }
             }, 1500);
         });
