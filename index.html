@@ -206,7 +206,12 @@
             display: inline-block;
             margin-left: 20px;
             animation: fadeInRight 1s ease-out 0.7s both;
-            background: linear-gradient(to right, #000000, #9E4D00, #D76B00);
+            background: linear-gradient(to right, 
+                #000000 0%, 
+                #000000 60%, /* Le 'i' de Bachira commence approximativement à 60% */
+                #9E4D00 75%,
+                #D76B00 90%,
+                #D76B00 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
