@@ -326,8 +326,9 @@
             visibility: hidden;
             transition: transform 0.5s ease, opacity 0.5s ease;
             flex-direction: column;
-            width: 100%;
+            width: 90%;
             max-width: 800px;
+            padding: 30px 20px;
         }
         
         .social-icons-row {
@@ -336,6 +337,7 @@
             align-items: center;
             gap: 25px;
             width: 100%;
+            flex-wrap: wrap;
         }
         
         .platform-title {
@@ -534,6 +536,47 @@
             header {
                 margin-top: 30px;
                 margin-bottom: 40px;
+            }
+            
+            .social-icons-row {
+                gap: 15px;
+            }
+            
+            .social-icon {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .platform-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .social-icons-row {
+                gap: 10px;
+                justify-content: space-around;
+            }
+            
+            .social-icon {
+                width: 90px;
+                height: 90px;
+                margin: 8px;
+            }
+            
+            .social-icon svg {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .platform-name {
+                font-size: 12px;
+            }
+            
+            .platform-title {
+                font-size: 24px;
+                margin-bottom: 20px;
             }
         }
     </style>
