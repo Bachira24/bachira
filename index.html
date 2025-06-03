@@ -47,8 +47,27 @@
             justify-content: center;
             margin-bottom: 60px;
             position: relative;
-            opacity: 0;
-            animation: slideInTop 1s ease-out 0.2s forwards;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%; /* Forme ronde */
+            overflow: hidden; /* Pour s'assurer que l'image reste dans le cercle */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 140, 0, 0.3); /* Ombre avec légère teinte orange */
+            position: relative;
+            transform: perspective(1200px) rotateY(0deg) rotateX(0deg); /* Effet 3D */
+            transition: transform 0.5s ease;
+            animation: cinematicEntry 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both, professionalFloat 8s ease-in-out 3s infinite;
         }
         
         /* La ligne orange est supprimée en retirant ce bloc header::before */
