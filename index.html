@@ -275,14 +275,14 @@
             z-index: 0;
         }
 
-        @keyframes textSlideIn {
+        @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateX(-100px);
+                transform: translateY(-30px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateY(0);
             }
         }
         
@@ -292,17 +292,8 @@
             position: relative;
             display: inline-block;
             margin-left: 20px;
-            background: linear-gradient(to right, 
-                #000000 0%, 
-                #000000 60%,
-                #9E4D00 75%,
-                #D76B00 90%,
-                #D76B00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            animation: textSlideIn 1.2s ease-out 0.8s both;
+            color: white;
+            animation: fadeInDown 1s ease-out 0.8s both;
         }
 
         .main-content {
