@@ -67,7 +67,7 @@
             position: relative;
             transform: perspective(1200px) rotateY(0deg) rotateX(0deg); /* Effet 3D */
             transition: transform 0.5s ease;
-            animation: cinematicEntry 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both, professionalFloat 8s ease-in-out 3s infinite;
+            animation: cinematicEntry 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both, floatWiggle 3s ease-in-out 2.5s infinite;
         }
         
         /* La ligne orange est supprimée en retirant ce bloc header::before */
@@ -147,21 +147,25 @@
             }
         }
         
-        @keyframes professionalFloat {
+        @keyframes floatWiggle {
             0% {
-                transform: perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px) scale(1);
+                transform: perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px) rotate(0deg);
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 140, 0, 0.3);
             }
-            33% {
-                transform: perspective(1200px) rotateY(3deg) rotateX(1deg) translateY(-8px) scale(1.02);
-                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 140, 0, 0.4);
+            25% {
+                transform: perspective(1200px) rotateY(2deg) rotateX(1deg) translateY(-5px) rotate(0.5deg);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 18px rgba(255, 140, 0, 0.35);
             }
-            66% {
-                transform: perspective(1200px) rotateY(-2deg) rotateX(-1deg) translateY(-5px) scale(1.01);
-                box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22), 0 0 18px rgba(255, 140, 0, 0.35);
+            50% {
+                transform: perspective(1200px) rotateY(0deg) rotateX(-1deg) translateY(-8px) rotate(-0.3deg);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 140, 0, 0.4);
+            }
+            75% {
+                transform: perspective(1200px) rotateY(-2deg) rotateX(0.5deg) translateY(-3px) rotate(0.8deg);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22), 0 0 18px rgba(255, 140, 0, 0.35);
             }
             100% {
-                transform: perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px) scale(1);
+                transform: perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0px) rotate(0deg);
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 140, 0, 0.3);
             }
         }
@@ -244,29 +248,34 @@
             z-index: 0;
         }
 
+        @keyframes textSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
         .brand-name {
             font-size: 54px;
             font-weight: 800;
             position: relative;
             display: inline-block;
             margin-left: 20px;
-            background: linear-gradient(135deg, 
+            background: linear-gradient(to right, 
                 #000000 0%, 
-                #000000 30%,
-                #333333 45%,
-                #666666 55%,
-                #9E4D00 70%,
-                #D76B00 85%,
-                #FF8C00 95%,
+                #000000 60%,
+                #9E4D00 75%,
+                #D76B00 90%,
                 #D76B00 100%);
-            background-size: 400% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-fill-color: transparent;
-            animation: none;
-            opacity: 1;
-            transform: none;
+            animation: textSlideIn 1.2s ease-out 0.8s both;
         }
 
         .main-content {
