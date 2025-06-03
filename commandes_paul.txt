@@ -1,0 +1,71 @@
+# Guide Git pour Windows - Configuration complète
+
+## 1. Installation de Git
+
+### Téléchargement et installation
+1. Va sur https://git-scm.com/download/windows
+2. Télécharge la version appropriée (32 ou 64 bits)
+3. Lance l'installateur
+4. Accepte les options par défaut lors de l'installation
+
+### Vérification de l'installation
+Ouvre PowerShell et tape :
+
+git --version
+
+## 2. Configuration initiale
+
+Configure tes informations personnelles :
+git config --global user.name "Ton Nom"
+git config --global user.email "ton.email@example.com"
+
+## 3. Configuration de la clé SSH
+
+### Génération de la clé SSH
+1. Ouvre Git Bash
+2. Génère une nouvelle clé SSH :
+ssh-keygen -t ed25519 -C "ton.email@example.com"
+
+3. Appuie sur Entrée pour accepter l'emplacement par défaut
+4. Choisis un mot de passe (optionnel mais recommandé)
+
+### Ajout de la clé à l'agent SSH
+```bash
+# Lance l'agent SSH
+eval "$(ssh-agent -s)"
+
+# Ajoute ta clé privée
+ssh-add ~/.ssh/id_ed25519
+```
+
+### Copie de la clé publique
+# Affiche ta clé publique
+cat ~/.ssh/id_ed25519.pub
+Copie tout le contenu qui s'affiche.
+
+### Ajout sur GitHub/GitLab
+1. Va dans les paramètres de ton compte GitHub
+2. Section "SSH and GPG keys" ou "SSH Keys"
+3. Clique sur "New SSH key" ou "Add SSH key"
+4. Colle ta clé publique et donne-lui un nom
+5. Sauvegarde
+
+### Test de la connexion SSH
+# Pour GitHub
+ssh -T git@github.com
+
+## 4. Cloner un projet
+
+```bash
+# Clone le projet avec SSH
+git clone git@github.com:Bachira24/bachira.git
+
+# Va dans le dossier du projet
+cd bachira
+
+## 5. Workflow de base pour push des modifications
+
+git add .
+git commit -m "Description de tes modifications"
+git push -u origin main
+
